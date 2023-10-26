@@ -31,3 +31,55 @@
     src: url('../fonts/montserrat-v26-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
   
+:root {
+  --primary-color: #1F2B1C;
+  --secondary-color: #B8D2AF;
+  --tertiary-color: #AAEADE;
+}
+
+header {
+  border: 1px solid green;
+}
+
+.btn-toggle-nav {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+nav {
+  border: 1px solid orange;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  background: #fff;
+  padding: 10px;
+}
+
+nav[data-display="true"] {
+  right: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  /* border: 1px solid #00000071; */
+  padding: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.link-secondary {
+  background: var(--secondary-color);
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 10px 5px;
+  text-align: center;
+}

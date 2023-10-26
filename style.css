@@ -1,8 +1,39 @@
-*, *::before, *::after {
-    box-sizing: border-box;
+/* molle-italic - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Molle';
+    font-style: italic;
+    font-weight: 400;
+    src: url('fonts/molle-v23-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-main {
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
+
+body {
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+    color: #141B12;
+}
+
+#logo {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#logo svg {
+    width: 37px;
+    height: 37px;
+}
+
+#logo #pure {
+    font-family: "Molle", sans-serif;
+    font-weight: 400;
+    margin-left: 3px;
+}
+
+/* inert */
+/* srcset */

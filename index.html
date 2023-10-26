@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="https://www.dentapure.com" aria-label="Go to Homepage">
+        <a id="logo" href="https://www.dentapure.com" aria-label="Go to Homepage">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000" stroke="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -19,19 +19,21 @@
             </svg>
             <span>Denta</span><span id="pure">Pure</span>
         </a>
-        <nav>
+        <button class="btn-toggle-nav" aria-label="open navigation"></button>
+        <nav data-display="false">
             <ul>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="appointment.html">Book an Appointment</a></li>
             </ul>
+            <a id="link-book" class="link-secondary" href="appointment.html">Book an Appointment</a>
         </nav>
     </header>
-    <button id="toggle-nav"></button>
     <main>
         
     </main>
+
+    <script src="index.js"></script>
 </body>
 </html>
