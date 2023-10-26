@@ -1,0 +1,8 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+main {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
