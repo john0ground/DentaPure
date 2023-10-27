@@ -76,6 +76,10 @@ a {
   color: #000;
 }
 
+.btn-dropdown-nav * {
+  pointer-events: none;
+}
+
 .link-secondary {
   background: var(--secondary-color);
   font-size: 14px;

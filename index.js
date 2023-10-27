@@ -1,15 +1,22 @@
+// ==================================  NAV BAR ACCESSIBILITY  ======================================
+
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
-const navBookLink = document.querySelector('nav #link-book');
+const btnDropdownsNav = document.querySelectorAll('.btn-dropdown-nav');
+const lastNavLink = document.querySelector('nav .link-last');
 
 let displayNav = false;
 let mobileScreen = false;
 
 function toggleNavFocus(state) {
-    state === true?
-    navLinks.forEach(link => link.removeAttribute('tabindex')):
-    navLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+    if (state === true) {
+        navLinks.forEach(link => link.removeAttribute('tabindex'));
+        btnDropdownsNav.forEach(btn => btn.removeAttribute('tabindex'));
+    } else {
+        navLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+        btnDropdownsNav.forEach(btn => btn.setAttribute('tabindex', '-1'));
+    }
 }
 
 function toggleNavBar(e) {
@@ -29,8 +36,8 @@ function toggleNavBar(e) {
 btnToggleNav.addEventListener('click', toggleNavBar);
 btnToggleNav.addEventListener('keydown', toggleNavBar);
 
-//  tab order trap focus if nav bar is displayed.
-navBookLink.addEventListener('keydown', (e) => {
+//  trap focus if nav bar is displayed.
+lastNavLink.addEventListener('keydown', (e) => {
     if (e.key === "Tab" && mobileScreen) {
         e.preventDefault();
         btnToggleNav.focus();
@@ -44,3 +51,23 @@ navBookLink.addEventListener('keydown', (e) => {
         mobileScreen = true;
     }
 })();
+
+// ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
+function toggleDropdown(e) {
+    if (e.type === 'click' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+
+        const state = e.target.dataset.extend;
+        
+        if (state === 'true') {
+            e.target.setAttribute('data-extend', 'false');
+            e.target.setAttribute('aria-label', 'Extend Dropdown Links');
+        } else {
+            e.target.setAttribute('data-extend', 'true');
+            e.target.setAttribute('aria-label', 'Close Dropdown Links');
+        }
+    }
+}
+
+btnDropdownsNav.forEach(btn => btn.addEventListener('click', toggleDropdown));
+btnDropdownsNav.forEach(btn => btn.addEventListener('keydown', toggleDropdown));

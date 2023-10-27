@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="https://www.dentapure.com" aria-label="Go to Homepage">
+        <a id="logo" href="https://www.dentapure.com" aria-label="Go to DentaPure Homepage">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000" stroke="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -19,19 +19,28 @@
             </svg>
             <span>Denta</span><span id="pure">Pure</span>
         </a>
-        <button class="btn-toggle-nav" aria-label="open navigation"></button>
+        <button class="btn-toggle-nav" aria-label="Open Navigation"></button>
         <nav data-display="false">
             <ul>
                 <li><a href="services.html">Services</a></li>
                 <li>
-                    <a href="about.html">About Us</a>
-                    
+                    <a id="about" href="about.html">About Us</a>
+                    <button aria-labelledby="about" aria-label="Extend Dropdown Links" class="btn-dropdown-nav" data-extend="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon" version="1.1" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g id="SVGRepo_iconCarrier">
+                            <path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#000000"/>
+                            </g>
+                        </svg>
+                    </button>
                 </li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li class="freq"><a href="faq.html">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a id="link-book" class="link-secondary" href="appointment.html">Book an Appointment</a></li>
+                <li><a class="link-secondary link-last" href="appointment.html">Book an Appointment</a></li>
             </ul>
         </nav>
+    
     </header>
     <main>
         
