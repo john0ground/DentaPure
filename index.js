@@ -4,6 +4,7 @@ const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
 const btnDropdownsNav = document.querySelectorAll('.btn-dropdown-nav');
+// const dropdownLinks = document.querySelectorAll('.dropdown-link');
 const lastNavLink = document.querySelector('nav .link-last');
 
 let displayNav = false;
@@ -44,16 +45,29 @@ lastNavLink.addEventListener('keydown', (e) => {
     }
 });
 
-//  initially hides the tab order for the nav links if the screen is mobile.
-(function navTabIndex() {
+
+(function init() {
+    //  initially hides the tab order for the nav links if the screen is mobile.
     if (document.documentElement.clientWidth <= 700) {
         toggleNavFocus(false);
         mobileScreen = true;
     }
+    
 })();
 
 // ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
-function toggleDropdown(e) {
+function toggleDropDownBar(parent, state) {
+    const id = parent.firstElementChild.id;
+    const dropdownBar = document.querySelector(`[data-dropdown-parent="${id}"]`);
+
+    if (state === 'true') {
+        dropdownBar.setAttribute('data-visible', 'false');
+    } else {
+        dropdownBar.setAttribute('data-visible', 'true');
+    }
+}
+
+function toggleDropdownBtn(e) {
     if (e.type === 'click' || e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
 
@@ -68,8 +82,13 @@ function toggleDropdown(e) {
             e.target.setAttribute('aria-label', 'Close Dropdown Links');
             e.target.classList.add('dropdown-extend');
         }
+
+        toggleDropDownBar(e.target.parentNode, state);
     }
 }
 
-btnDropdownsNav.forEach(btn => btn.addEventListener('click', toggleDropdown));
-btnDropdownsNav.forEach(btn => btn.addEventListener('keydown', toggleDropdown));
+btnDropdownsNav.forEach(btn => btn.addEventListener('click', toggleDropdownBtn));
+btnDropdownsNav.forEach(btn => btn.addEventListener('keydown', toggleDropdownBtn));
+
+
+// style burger menu
