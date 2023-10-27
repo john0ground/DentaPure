@@ -75,7 +75,9 @@ nav ul li {
   /* border: 1px solid #00000071; */
   padding: 10px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
 }
 
 a {
@@ -87,6 +89,9 @@ a {
   transition: transform 0.3s;
   background: none;
   border: none;
+  position: absolute;
+  right: 0;
+  top: 12px;
 }
 
 .btn-dropdown-nav * {
@@ -102,6 +107,19 @@ a {
 
 .dropdown-bar[data-visible="false"] {
   display: none;
+}
+
+.dropdown-bar[data-screen="desktop"] {
+  position: absolute;
+  border: 1px solid blue;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-bar[data-screen="desktop"] > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .link-secondary {

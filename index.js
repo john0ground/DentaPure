@@ -3,9 +3,11 @@
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
+const dropdownLinks = document.querySelectorAll('.dropdown-link');
+const dropdownBars = document.querySelectorAll('.dropdown-bars');
 const btnDropdownsNav = document.querySelectorAll('.btn-dropdown-nav');
-// const dropdownLinks = document.querySelectorAll('.dropdown-link');
 const lastNavLink = document.querySelector('nav .link-last');
+const lastDropDownLinks = document.querySelectorAll('.dropdown-last');
 
 let displayNav = false;
 let mobileScreen = false;
@@ -45,27 +47,16 @@ lastNavLink.addEventListener('keydown', (e) => {
     } 
 });
 
-
-(function init() {
-    //  initially hides the tab order for the nav links if the screen is mobile.
-    if (document.documentElement.clientWidth <= 900) {
-        toggleNavFocus(false);
-        mobileScreen = true;
-    } else {
-        nav.setAttribute('data-display', 'true');
-    }
-})();
-
 // ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
 function toggleDropDownBar(parent, state) {
-    const id = parent.firstElementChild.id;
-    const dropdownBar = document.querySelector(`[data-dropdown-parent="${id}"]`);
+    console.log(parent);
+    const dropdownBar = parent.querySelector('.dropdown-bar');
+    
+    if (mobileScreen === false) dropdownBar.setAttribute('data-screen', 'desktop');
 
-    if (state === 'true') {
-        dropdownBar.setAttribute('data-visible', 'false');
-    } else {
-        dropdownBar.setAttribute('data-visible', 'true');
-    }
+    state === 'true'? 
+    dropdownBar.setAttribute('data-visible', 'false'):
+    dropdownBar.setAttribute('data-visible', 'true');
 }
 
 function toggleDropdownBtn(e) {
@@ -92,4 +83,36 @@ btnDropdownsNav.forEach(btn => btn.addEventListener('click', toggleDropdownBtn))
 btnDropdownsNav.forEach(btn => btn.addEventListener('keydown', toggleDropdownBtn));
 
 
-// style burger menu
+function hoverDropdownLink(e, state) {
+    if (mobileScreen) return;
+    e.stopPropagation();
+    toggleDropDownBar(e.target, state);
+}
+dropdownLinks.forEach(link => link.addEventListener('mouseenter',(e) => hoverDropdownLink(e,'false')));
+dropdownLinks.forEach(link => link.addEventListener('mouseleave',(e) => hoverDropdownLink(e,'true')));
+
+function focusDropdownLink(parent, state) {
+    if (mobileScreen) return;
+    if (parent.classList.contains('dropdown-link')) toggleDropDownBar(parent, state);
+}
+
+navLinks.forEach(link => link.addEventListener('focus',(e) => focusDropdownLink(e.target.parentNode, 'false')));
+
+//  close dropdown bar after the last focused element
+lastDropDownLinks.forEach(link => link.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+        const liParent = e.target.closest('.dropdown-link');
+        focusDropdownLink(liParent, 'true');
+    }
+}));
+
+(function init() {
+    //  initially hides the tab order for the nav links if the screen is mobile.
+    if (document.documentElement.clientWidth <= 900) {
+        toggleNavFocus(false);
+        mobileScreen = true;
+    } else {
+        nav.setAttribute('data-display', 'true');
+        btnDropdownsNav.forEach(btn => btn.style.display = 'none');
+    }
+})();
