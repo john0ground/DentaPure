@@ -39,6 +39,11 @@
 
 header {
   border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100vw;
 }
 
 .btn-toggle-nav {
@@ -46,8 +51,8 @@ header {
   height: 30px;
   border: 1px solid #000;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   z-index: 1;
 }
 
@@ -104,4 +109,29 @@ a {
   font-size: 14px;
   border-radius: 10px;
   padding: 10px 5px;
+}
+
+@media screen and (min-width: 900px) {
+    header {
+      padding:0 2rem;
+    }
+
+    .btn-toggle-nav {
+      display: none;
+    }
+
+    nav {
+      position: static;
+      width: auto;
+      padding: 0;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li {
+      align-items: center;
+    }
 }

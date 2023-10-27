@@ -42,17 +42,18 @@ lastNavLink.addEventListener('keydown', (e) => {
     if (e.key === "Tab" && mobileScreen) {
         e.preventDefault();
         btnToggleNav.focus();
-    }
+    } 
 });
 
 
 (function init() {
     //  initially hides the tab order for the nav links if the screen is mobile.
-    if (document.documentElement.clientWidth <= 700) {
+    if (document.documentElement.clientWidth <= 900) {
         toggleNavFocus(false);
         mobileScreen = true;
+    } else {
+        nav.setAttribute('data-display', 'true');
     }
-    
 })();
 
 // ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
