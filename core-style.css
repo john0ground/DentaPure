@@ -58,7 +58,7 @@ nav {
   top: 0;
   right: -100%;
   background: #fff;
-  padding: 10px;
+  padding: 35px 15px;
 }
 
 nav[data-display="true"] {
@@ -69,6 +69,8 @@ nav ul li {
   list-style-type: none;
   /* border: 1px solid #00000071; */
   padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 a {
@@ -76,8 +78,21 @@ a {
   color: #000;
 }
 
+.btn-dropdown-nav {
+  transition: transform 0.3s;
+  background: none;
+  border: none;
+}
+
 .btn-dropdown-nav * {
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-extend {
+  transform: rotate(90deg);
 }
 
 .link-secondary {

@@ -46,7 +46,7 @@ lastNavLink.addEventListener('keydown', (e) => {
 
 //  initially hides the tab order for the nav links if the screen is mobile.
 (function navTabIndex() {
-    if (window.innerWidth <= 700) {
+    if (document.documentElement.clientWidth <= 700) {
         toggleNavFocus(false);
         mobileScreen = true;
     }
@@ -62,9 +62,11 @@ function toggleDropdown(e) {
         if (state === 'true') {
             e.target.setAttribute('data-extend', 'false');
             e.target.setAttribute('aria-label', 'Extend Dropdown Links');
+            e.target.classList.remove('dropdown-extend');
         } else {
             e.target.setAttribute('data-extend', 'true');
             e.target.setAttribute('aria-label', 'Close Dropdown Links');
+            e.target.classList.add('dropdown-extend');
         }
     }
 }
