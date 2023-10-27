@@ -1,6 +1,7 @@
 // ==================================  NAV BAR ACCESSIBILITY  ======================================
 
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
+const btnNavBars = btnToggleNav.querySelectorAll('.bar');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
 const dropdownLinks = document.querySelectorAll('.dropdown-link');
@@ -27,9 +28,13 @@ function toggleNavBar(e) {
         e.preventDefault();
 
         displayNav = !displayNav;
-        displayNav === true?
-        btnToggleNav.setAttribute('aria-label', 'close navigation links'):
-        btnToggleNav.setAttribute('aria-label', 'open navigation links');
+        if (displayNav) {
+            btnToggleNav.setAttribute('aria-label', 'close navigation links');
+            btnNavBars.forEach(bar => bar.setAttribute('data-bar-open', ''));
+        } else {
+            btnToggleNav.setAttribute('aria-label', 'open navigation links');
+            btnNavBars.forEach(bar => bar.removeAttribute('data-bar-open'));
+        }
 
         nav.setAttribute('data-display', displayNav.toString());
         toggleNavFocus(displayNav);

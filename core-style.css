@@ -54,6 +54,52 @@ header {
   top: 1rem;
   right: 1rem;
   z-index: 1;
+  background: none;
+  border: none;
+}
+
+.btn-toggle-nav .bar {
+  height: 2px;
+  width: 30px;
+  background: black;
+  position: absolute;
+}
+
+.btn-toggle-nav .bar:nth-of-type(3) {
+  width: 14px;
+}
+
+.bar {
+  transition: transform 0.5s, top 0.5s, left 0.5s, opacity 0.5s;
+}
+
+.bar-1 {
+  top: 5px;
+}
+
+.bar-2 {
+  top: 12px;
+}
+
+.bar-3 {
+  left: 0;
+  top: 19px;
+  opacity: 1;
+}
+
+.bar-1[data-bar-open] {
+  top: 12px;
+  transform: rotate(135deg);
+}
+
+.bar-2[data-bar-open] {
+  transform: rotate(-135deg);
+}
+
+.bar-3[data-bar-open] {
+  left: 8px;
+  transform: rotate(-90deg);
+  opacity: 0;
 }
 
 nav {
@@ -146,6 +192,7 @@ a {
 
     nav ul {
       display: flex;
+      align-items: center;
       gap: 2rem;
     }
 
