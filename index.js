@@ -1,5 +1,6 @@
 // ==================================  NAV BAR ACCESSIBILITY  ======================================
 
+const header = document.querySelector('header');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const btnNavBars = btnToggleNav.querySelectorAll('.bar');
 const nav = document.querySelector('nav');
@@ -115,6 +116,28 @@ lastDropDownLinks.forEach(link => link.addEventListener('keydown', (e) => {
     }
 }));
 
+// ==================================  HEADER TRANSITIONS  ======================================
+function toggleHeaderBackground() {
+    window.scrollY === 0? 
+    header.setAttribute('data-origin', ''):
+    header.removeAttribute('data-origin');
+}
+
+let lastScrollPos = 0;
+function toggleHeaderPosition() {
+    const currentScrollPos = window.scrollY;
+    
+    currentScrollPos > lastScrollPos?
+    header.setAttribute('data-hide', ''):
+    header.removeAttribute('data-hide');
+
+    lastScrollPos = currentScrollPos;
+}
+
+window.addEventListener('scroll', toggleHeaderBackground);
+window.addEventListener('scroll', toggleHeaderPosition);
+
+// ========================= INITIALIZE ================================
 (function init() {
     //  initially hides the tab order for the nav links if the screen is mobile.
     if (document.documentElement.clientWidth <= 900) {
