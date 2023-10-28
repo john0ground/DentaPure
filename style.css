@@ -16,7 +16,7 @@
 body {
     font-size: 17px;
     font-family: "Montserrat", sans-serif;
-    color: #141B12;
+    color: #000000;
 }
 
 #logo {
@@ -35,6 +35,67 @@ body {
     font-family: "Molle", sans-serif;
     font-weight: 400;
     margin-left: 3px;
+    position: relative;
+    top: 4px;
 }
 
+.bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    background-image: url('webp/dew-bg-640.webp');
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
 
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(224, 255, 214, 0.74);
+}
+
+main {
+    padding: 80px 15px 0 15px;
+}
+
+.hero aside {
+    text-align: center;
+}
+
+.hero aside img {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.hero-text {
+    margin-top: 20px;
+}
+
+.hero-text span {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+    line-height: 1.5rem;
+}
+
+.hero-text a {
+    display: block;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 640px) {
+    .bg {
+        background-image: url('webp/dew-bg-3000.webp');
+    }
+}

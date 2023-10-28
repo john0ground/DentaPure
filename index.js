@@ -54,7 +54,6 @@ lastNavLink.addEventListener('keydown', (e) => {
 
 // ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
 function toggleDropDownBar(parent, state) {
-    console.log(parent);
     const dropdownBar = parent.querySelector('.dropdown-bar');
     
     if (mobileScreen === false) dropdownBar.setAttribute('data-screen', 'desktop');
@@ -62,6 +61,11 @@ function toggleDropDownBar(parent, state) {
     state === 'true'? 
     dropdownBar.setAttribute('data-visible', 'false'):
     dropdownBar.setAttribute('data-visible', 'true');
+
+    const subLinks = dropdownBar.querySelectorAll('ul li a');
+    state === 'true'? 
+    subLinks.forEach(link => link.setAttribute('tabindex', '-1')):
+    subLinks.forEach(link => link.removeAttribute('tabindex'));
 }
 
 function toggleDropdownBtn(e) {
