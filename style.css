@@ -7,6 +7,12 @@
     src: url('fonts/molle-v23-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+:root {
+    --primary-color: #1F2B1C;
+    --secondary-color: #B2CB9E;
+    --tertiary-color: #AAEADE;
+  }
+
 *, *::before, *::after {
     box-sizing: border-box;
     padding: 0;
@@ -97,5 +103,56 @@ h1 {
 @media screen and (min-width: 640px) {
     .bg {
         background-image: url('webp/dew-bg-3000.webp');
+    }
+}
+
+@media screen and (min-width: 900px) {
+    nav {
+        background: none;
+    }
+
+    main {
+        padding: 80px 0 0 0;
+    }
+
+    .hero {
+        display: flex;
+        border: 1px solid red;
+    }   
+
+    .hero aside {
+        height: 100vh;
+        flex: 1;
+        background: var(--tertiary-color);
+        position: relative;
+    }
+
+    .hero aside img {
+        position: absolute;
+        right: 0;
+        top: 5rem;
+        right: -30px;
+        border-radius: 0;
+    }
+
+    .hero-text {
+        flex: 2;
+        margin-left: 110px;
+        margin-top: 5rem;
+    }
+
+    h1 {
+        font-size: 58px;
+        margin-bottom: 1.4rem;
+    }
+
+    .hero-text p {
+        max-width: 35rem;
+    }
+
+    .hero-text a {
+        display: inline-block;
+        margin-top: 2.5rem;
+        margin-right: 12px;
     }
 }
