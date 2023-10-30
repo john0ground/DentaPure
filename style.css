@@ -72,16 +72,24 @@ main {
 
 .hero aside {
     text-align: center;
+    max-height: 1080px;
 }
 
 .hero aside img {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-top: 6rem;
+    position: relative;
 }
 
 .hero-text {
     margin-top: 20px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .hero-text span {
@@ -96,10 +104,75 @@ main {
     display: block;
 }
 
-h1 {
-    font-size: 48px;
+.services {
+    background: var(--secondary-color);
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.services h2 {
+    color: #fff;
+    font-size: 34px;
     font-weight: 600;
-    margin-bottom: 20px;
+    /* max-width: 15rem; */
+}
+
+.services .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.service-card {
+    min-height: 450px;
+    width: 90%;
+    max-width: 350px;
+    text-align: left;
+    background: #D2F5C6;
+    border-radius: 10px;
+    border-top: 10px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.service-icon {
+    background: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3rem;
+}
+
+.service-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.service-card h3 {
+    margin-top: 1.5rem;
+}
+
+.service-card p {
+    margin-top: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.service-card a {
+    margin-top: auto;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.service-card a:hover {
+    opacity: 0.6;
 }
 
 @media screen and (min-width: 640px) {
@@ -129,12 +202,10 @@ h1 {
     }
 
     .hero aside img {
-        position: absolute;
         right: 0;
-        top: 5rem;
-        right: -30px;
+        top: 3.5rem;
+        right: -110px;
         border-radius: 0;
-        margin-top: 4.5rem;
     }
 
     .hero-text {
@@ -156,5 +227,9 @@ h1 {
         display: inline-block;
         margin-top: 2.5rem;
         margin-right: 12px;
+    }
+
+    .service-card {
+        text-align: center;
     }
 }

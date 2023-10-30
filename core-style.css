@@ -48,7 +48,7 @@ header {
   position: fixed;
   top: 0;
   min-width: 100vw;
-  z-index: 1;
+  z-index: 2;
   background: #fff;
   transition: background 0.3s ease-out, top 0.3s;
 }
@@ -141,7 +141,7 @@ nav ul li {
   position: relative;
 }
 
-nav ul li a::after {
+nav > ul > li > a::after {
   content: "";
   position: absolute;
   bottom: 6px;
@@ -223,7 +223,6 @@ a {
 }
 
 .dropdown-bar ul li a {
-  /* color: #d1e2be; */
   color: #000;
 }
 
