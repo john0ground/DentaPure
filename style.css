@@ -1,3 +1,36 @@
+/* montserrat-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/montserrat-v26-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* montserrat-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/montserrat-v26-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* montserrat-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/montserrat-v26-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* montserrat-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/montserrat-v26-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
 /* molle-italic - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -66,10 +99,6 @@ body {
     background-color: rgba(224, 255, 214, 0.74);
 }
 
-main {
-    padding: 0 15px;
-}
-
 .hero aside {
     text-align: center;
     max-height: 1080px;
@@ -84,6 +113,7 @@ main {
 
 .hero-text {
     margin-top: 20px;
+    padding: 0 15px;
 }
 
 h1 {
@@ -105,16 +135,27 @@ h1 {
 }
 
 .services {
-    background: var(--secondary-color);
     text-align: center;
     padding: 5rem 0;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.services > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6);
 }
 
 .services h2 {
     color: #fff;
     font-size: 34px;
     font-weight: 600;
-    /* max-width: 15rem; */
 }
 
 .services .card-container {
@@ -126,7 +167,7 @@ h1 {
 }
 
 .service-card {
-    min-height: 450px;
+    min-height: 430px;
     width: 90%;
     max-width: 350px;
     text-align: left;
@@ -165,7 +206,7 @@ h1 {
 }
 
 .service-card a {
-    margin-top: auto;
+    margin-top: 20px;
     font-weight: 600;
     text-decoration: underline;
     transition: opacity 0.3s;
@@ -175,9 +216,20 @@ h1 {
     opacity: 0.6;
 }
 
+@media screen and (min-width: 350px) {
+    .service-card a {
+        margin-top: auto;
+    }
+}
+
 @media screen and (min-width: 640px) {
     .bg {
         background-image: url('webp/dew-bg-3000.webp');
+    }
+
+    .hero-text,
+    .services {
+        padding: 5rem 50px;
     }
 }
 
@@ -195,16 +247,15 @@ h1 {
     }   
 
     .hero aside {
-        height: 100vh;
+        height: calc(100vh + 50px);
         flex: 1;
         background: var(--tertiary-color);
         position: relative;
     }
 
     .hero aside img {
-        right: 0;
         top: 3.5rem;
-        right: -110px;
+        right: -25%;
         border-radius: 0;
     }
 
@@ -227,6 +278,10 @@ h1 {
         display: inline-block;
         margin-top: 2.5rem;
         margin-right: 12px;
+    }
+
+    .services {
+        margin: 0;
     }
 
     .service-card {
