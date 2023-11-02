@@ -213,6 +213,7 @@ a {
   overflow: hidden;
   z-index: 1;
   transition: color 0.3s ease-in-out;
+  display: block;
 }
 
 .link-primary {
@@ -229,8 +230,7 @@ a {
 /* customized */
 .link-tertiary {
   background: var(--tertiary-color);
-  display: block;
-  margin: 5rem auto 2rem auto;
+  margin: 5rem auto 1rem auto;
   font-weight: 500;
 }
 

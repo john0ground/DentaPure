@@ -152,10 +152,15 @@ h1 {
     filter: brightness(0.6);
 }
 
-.services h2 {
-    color: #fff;
+h2 {
     font-size: 34px;
     font-weight: 600;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.services h2 {
+    color: #fff;
 }
 
 .services .card-container {
@@ -214,6 +219,48 @@ h1 {
 
 .service-card a:hover {
     opacity: 0.6;
+}
+
+.team {
+    padding: 5rem 15px;
+    text-align: center;
+}
+
+.team h2 {
+    margin-bottom: 3rem;
+}
+
+.team .img-container {
+    width: min-content;
+    height: min-content;
+    margin: 0 auto;
+}
+
+.team img {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.team p {
+    margin: 3rem 0;
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+.team .feature {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+}
+
+.team .feature svg {
+    width: 33px;
+    height: auto;
+    opacity: 50%;
+}
+
+.team .feature span {
+    font-weight: 600;
 }
 
 @media screen and (min-width: 350px) {
@@ -276,7 +323,6 @@ h1 {
 
     .hero-text a {
         display: inline-block;
-        margin-top: 2.5rem;
         margin-right: 12px;
     }
 
@@ -286,5 +332,56 @@ h1 {
 
     .service-card {
         text-align: center;
+    }
+
+    .team {
+        padding: 0;
+        position: relative;
+    }
+
+    .team aside {
+        width: 40vw;
+        background: var(--tertiary-color);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 4.5rem;
+        height: calc(100vh + 150px);
+        max-height: 1080px;
+    }
+
+    .team aside h2 {
+        margin-top: 5rem;
+    }
+
+    .team aside .img-container {
+        position: absolute;
+        left: -470px;
+    }
+
+    .team aside .img-container::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: -30px;
+        right: 75%;
+        bottom: 0;
+        border-left: 3px solid var(--primary-color);
+        border-top: 3px solid var(--primary-color);
+    }
+
+    .team .link-primary {
+        position: absolute;
+        left: -155px;
+    }
+}
+ 
+@media screen and (min-width: 1200px) {
+    .team aside .img-container {
+        left: -650px;
+    }
+
+    .team .link-primary {
+        top: 680px;
     }
 }

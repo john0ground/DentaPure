@@ -162,16 +162,46 @@
         <!-- ========================================== TEAM ====================================================== -->
 
         <section class="team">
-            <div class="img-container">
-                <img src="" alt="Group of dentists in a clinic.">
-            </div>
-            <aside class="team-text">
+            <aside>
                 <h2>Specialized Team</h2>
+                <div class="img-container">
+                    <img
+                        srcset="webp/dentists-300.webp 300w, webp/dentists-700.webp 700w"
+                        src="webp/dentists-700.webp" 
+                        alt="Group of dentists in a clinic."
+                        sizes= "(max-width: 500px) 90vw, 
+                                (max-width: 900px) 80vw, 
+                                (max-width: 1200px) 500px, 680px"
+                    >
+                </div>
                 <p>
                     "At our dental practice, we are more than a team.  Our commitment to your oral health extends beyond just treatments; we prioritize your comfort and convenience. We understand that life can be busy, so we offer flexible scheduling options, ensuring you can access the care you need at a time that suits your lifestyle.
                 </p>
-                <div class="features"></div>
-                <a href="about.html">More About Us</a>
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                    </svg>
+                    <span>Transparent Pricing</span>
+                </div>
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                    </svg>
+                    <span>Family Friendly</span>
+                </div>
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                    </svg>
+                    <span>Transparent Pricing</span>
+                </div>
+                <a class="link-primary" href="about.html">More About Us</a>
             </aside>
         </section>
     </main>
