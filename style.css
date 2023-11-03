@@ -323,7 +323,76 @@ h2 {
 }
 
 .reviews > a {
-    margin: 5rem auto;
+    margin: 5rem auto 1.5rem auto;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background: var(--primary-color);
+}
+
+.contact img {
+    width: fit-content
+}
+
+.contact .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    border-bottom: 1px solid #edddc371;
+}
+
+.contact .socials svg {
+    width: 30px;
+    height: 30px;
+}
+
+.contact .contact-details {
+    grid-column: 1 / 3;
+    color: #EDDDC3;
+    text-align: center;
+    padding: 2.5rem 0;
+    position: relative;
+}
+
+.contact .contact-details > *:not(a) {
+    margin-bottom: 25px;
+}
+
+.contact .contact-details h2 {
+    max-width: 100vw;
+}
+
+.contact-details .contact-number {
+    color: #EDDDC3;
+}
+
+.contact-number span {
+    opacity: 0.7;
+    display: inline-block;
+}
+
+.contact-number a {
+    opacity: 1;
+    color: #EDDDC3;
+    display: inline-block;
+}
+
+.contact-details svg {
+    width: 24px;
+    height: 18px;
+}
+
+.contact-details > a {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    display: block;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 @media screen and (min-width: 350px) {
@@ -448,6 +517,35 @@ h2 {
         min-height: 320px;
         max-width: 320px;
     }
+
+    .contact {
+        grid-template-columns: auto 20% 1fr;
+    }
+
+    .contact img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .contact .socials {
+        padding-top: 2rem;
+        justify-content: flex-start;
+    }
+
+    .contact .contact-details {
+        grid-column: 3 / 4;
+        padding: 0;
+        padding-top: 1.5rem;
+        padding-right: 25%;
+    }
+
+    .contact .contact-details svg {
+        margin-bottom: 0;
+    }
+
+    .contact .contact-details > a {
+        left: 38%;
+    }
 }
  
 @media screen and (min-width: 1200px) {
@@ -480,5 +578,13 @@ h2 {
 
     .review-card .tooth-check-icon {
         width: 54px;
+    }
+
+    .contact .socials {
+        padding-top: 3.6rem;
+    }
+
+    .contact .contact-details {
+        padding-top: 3rem;
     }
 }
