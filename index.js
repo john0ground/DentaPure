@@ -148,3 +148,8 @@ window.addEventListener('scroll', toggleHeaderPosition);
         btnDropdownsNav.forEach(btn => btn.style.display = 'none');
     }
 })();
+
+const clinics = document.querySelectorAll('.gallery img');
+clinics.forEach(img => {
+    img.setAttribute("sizes","(max-width: 500px) 130px, (max-width: 900px) 25vw, 250px");
+});

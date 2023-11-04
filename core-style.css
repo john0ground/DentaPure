@@ -225,6 +225,7 @@ a {
 .link-secondary {
   background: var(--secondary-color);
   margin-top: 10px;
+  font-weight: 500;
 }
 
 /* customized */

@@ -395,6 +395,45 @@ h2 {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+.visit aside .gallery {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin: 5rem auto;
+    border-radius: 0 20px;
+    overflow: hidden;
+}
+
+.visit .visit-details {
+    padding: 15px;
+}
+
+.visit-details h2 {
+    margin: 0;
+}
+
+.visit-details p {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+.visit-details p svg {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+}
+
+.visit-details p span {
+    font-weight: 600;
+}
+
+.visit-details a {
+    margin: 1.5rem 0;
+}
+
 @media screen and (min-width: 350px) {
     .service-card a {
         margin-top: auto;
