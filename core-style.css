@@ -83,7 +83,7 @@ header[data-hide] {
   opacity: 0;
 }
 
-nav {
+#nav-main {
   width: 290px;
   position: absolute;
   top: 0;
@@ -94,12 +94,12 @@ nav {
   transition: right 0.4s, opacity 0.8s;
 }
 
-nav[data-display="true"] {
+#nav-main[data-display="true"] {
   right: 0;
   opacity: 1;
 }
 
-nav ul li {
+#nav-main ul li {
   list-style-type: none;
   padding: 10px 0;
   display: flex;
@@ -108,7 +108,7 @@ nav ul li {
   position: relative;
 }
 
-nav > ul > li > a::after {
+#nav-main > ul > li > a::after {
   content: "";
   position: absolute;
   bottom: 6px;
@@ -119,11 +119,11 @@ nav > ul > li > a::after {
   transition: width 0.3s;
 }
 
-nav ul li a:hover::after {
+#nav-main ul li a:hover::after {
   width: 100%;
 }
 
-nav ul li .link-secondary:hover::after {
+#nav-main ul li .link-secondary:hover::after {
   width: 0;
 }
 
@@ -293,25 +293,26 @@ a {
       display: none;
     }
 
-    nav {
+    #nav-main {
       width:min-content;
       padding: 0 3rem;
       top: 50%;
       transform: translateY(-50%);
+      background: none;
     }
 
-    nav ul {
+    #nav-main > ul {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
 
-    nav > ul > li {
+    #nav-main > ul > li {
       align-items: center;
       white-space: nowrap;
     }
 
-    nav ul li .link-secondary {
+    #nav-main ul li .link-secondary {
       position: relative;
       top: -5px;
     }

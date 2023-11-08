@@ -52,6 +52,10 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-size: 17px;
     font-family: "Montserrat", sans-serif;
@@ -96,7 +100,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(224, 255, 214, 0.74);
+    background-color: rgba(224, 255, 214, 0.6);
 }
 
 .hero aside {
@@ -448,6 +452,64 @@ h2 {
     object-fit: cover;
 }
 
+.visit-details .map:hover,
+.visit-details .map:focus {
+    filter: brightness(0.8);
+}
+
+
+.quick-links {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4rem 1rem;
+    gap: 2rem;
+}
+
+.quick-links nav {
+    width: 240px;
+}
+
+.quick-links nav h3 {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.quick-links nav ul {
+    list-style-type: none;
+}
+
+.quick-links nav ul li {
+    margin-bottom: 1rem;
+}
+
+.quick-links nav ul li a {
+    color: #fff;
+    text-wrap: wrap;
+    transition: color 0.3s ease-in-out;
+}
+
+.quick-links nav ul li a:hover,
+.quick-links nav ul li a:focus {
+    color: var(--secondary-color);
+}
+
+.quick-links nav ul li a svg {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    bottom: 0;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.quick-links nav ul li a svg:hover {
+    bottom: 5px;
+}
+
 @media screen and (min-width: 350px) {
     .service-card a {
         margin-top: auto;
@@ -466,10 +528,6 @@ h2 {
 }
 
 @media screen and (min-width: 900px) {
-    nav {
-        background: none;
-    }
-
     main {
         padding: 0;
     }
@@ -604,10 +662,6 @@ h2 {
         width: 460px;
         transition: filter 0.3s ease-in-out;
     }
-
-    .visit-details .map:hover {
-        filter: brightness(0.8);
-    }
 }
  
 @media screen and (min-width: 1200px) {
@@ -684,5 +738,12 @@ h2 {
 
     .visit-details .map {
         margin: 5rem 0;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .hero aside img,
+    .visit aside .gallery {
+        right: -35%;
     }
 }

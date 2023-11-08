@@ -3,12 +3,12 @@
 const header = document.querySelector('header');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const btnNavBars = btnToggleNav.querySelectorAll('.bar');
-const nav = document.querySelector('nav');
-const navLinks = document.querySelectorAll('nav ul li a');
+const nav = document.querySelector('#nav-main');
+const navLinks = document.querySelectorAll('#nav-main ul li a');
 const dropdownLinks = document.querySelectorAll('.dropdown-link');
 const dropdownBars = document.querySelectorAll('.dropdown-bars');
 const btnDropdownsNav = document.querySelectorAll('.btn-dropdown-nav');
-const lastNavLink = document.querySelector('nav .link-last');
+const lastNavLink = document.querySelector('#nav-main .link-last');
 const lastDropDownLinks = document.querySelectorAll('.dropdown-last');
 
 let displayNav = false;
