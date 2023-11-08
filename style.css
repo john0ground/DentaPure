@@ -510,6 +510,19 @@ h2 {
     bottom: 5px;
 }
 
+footer {
+    background: var(--primary-color);
+    padding: 1.5rem;
+    color: #ffffffd7;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #ffffffd7;
+    text-decoration: underline;
+}
+
 @media screen and (min-width: 350px) {
     .service-card a {
         margin-top: auto;
