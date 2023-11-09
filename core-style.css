@@ -43,6 +43,7 @@ header[data-hide] {
 }
 
 .btn-toggle-nav .bar {
+  display: block;
   height: 2px;
   width: 28px;
   background: black;
