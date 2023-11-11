@@ -58,6 +58,7 @@ body {
     font-weight: 600;
     display: flex;
     align-items: center;
+    width: fit-content;
 }
 
 #logo svg {
@@ -513,6 +514,7 @@ footer a {
     color: #ffffffd7;
     text-decoration: underline;
 }
+
 
 @media screen and (min-width: 350px) {
     .service-card a {

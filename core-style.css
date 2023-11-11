@@ -31,7 +31,6 @@ header[data-hide] {
 .btn-toggle-nav {
   width: 30px;
   height: 30px;
-  border: 1px solid #000;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -107,7 +106,13 @@ header[data-hide] {
   flex-direction: column;
   cursor: pointer;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
+
+#nav-main > ul > li > a {
+  width: fit-content;
+}
+  
 
 #nav-main > ul > li > a::after {
   content: "";
@@ -133,7 +138,7 @@ a {
   color: #000;
 }
 
-.btn-dropdown-nav {
+.btn-dropdown-arrow {
   transition: transform 0.3s;
   background: none;
   border: none;
@@ -143,7 +148,7 @@ a {
   cursor: pointer;
 }
 
-.btn-dropdown-nav * {
+.btn-dropdown-arrow * {
   pointer-events: none;
   display: flex;
   justify-content: center;

@@ -1,26 +1,26 @@
-// ==================================  NAV BAR ACCESSIBILITY  ======================================
-
 const header = document.querySelector('header');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const btnNavBars = btnToggleNav.querySelectorAll('.bar');
 const nav = document.querySelector('#nav-main');
-const navLinks = document.querySelectorAll('#nav-main ul li a');
+const navLinks = document.querySelectorAll('#nav-main > ul > li > a');
 const dropdownLinks = document.querySelectorAll('.dropdown-link');
-const dropdownBars = document.querySelectorAll('.dropdown-bars');
-const btnDropdownsNav = document.querySelectorAll('.btn-dropdown-nav');
+const btnDropdownArrows = document.querySelectorAll('.btn-dropdown-arrow');
 const lastNavLink = document.querySelector('#nav-main .link-last');
 const lastDropDownLinks = document.querySelectorAll('.dropdown-last');
+
+// ==================================  NAV BAR ACCESSIBILITY  ======================================
 
 let displayNav = false;
 let mobileScreen = false;
 
+// remove focus states if nav-bar is hidden.
 function toggleNavFocus(state) {
     if (state === true) {
         navLinks.forEach(link => link.removeAttribute('tabindex'));
-        btnDropdownsNav.forEach(btn => btn.removeAttribute('tabindex'));
+        btnDropdownArrows.forEach(btn => btn.removeAttribute('tabindex'));
     } else {
         navLinks.forEach(link => link.setAttribute('tabindex', '-1'));
-        btnDropdownsNav.forEach(btn => btn.setAttribute('tabindex', '-1'));
+        btnDropdownArrows.forEach(btn => btn.setAttribute('tabindex', '-1'));
     }
 }
 
@@ -29,6 +29,7 @@ function toggleNavBar(e) {
         e.preventDefault();
 
         displayNav = !displayNav;
+
         if (displayNav) {
             btnToggleNav.setAttribute('aria-label', 'close navigation links');
             btnNavBars.forEach(bar => bar.setAttribute('data-bar-open', ''));
@@ -54,8 +55,8 @@ lastNavLink.addEventListener('keydown', (e) => {
 });
 
 // ==================================  NAV DROPDOWNS ACCESSIBILITY  ======================================
-function toggleDropDownBar(parent, state) {
-    const dropdownBar = parent.querySelector('.dropdown-bar');
+function toggleDropDownBar(dropDownElem, state) {
+    const dropdownBar = dropDownElem;
     
     if (mobileScreen === false) dropdownBar.setAttribute('data-screen', 'desktop');
 
@@ -72,6 +73,7 @@ function toggleDropDownBar(parent, state) {
 function toggleDropdownBtn(e) {
     if (e.type === 'click' || e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
+        e.stopPropagation();
 
         const state = e.target.dataset.extend;
         
@@ -85,34 +87,50 @@ function toggleDropdownBtn(e) {
             e.target.classList.add('dropdown-extend');
         }
 
-        toggleDropDownBar(e.target.parentNode, state);
+        toggleDropDownBar(e.target.nextElementSibling, state);
     }
 }
 
-btnDropdownsNav.forEach(btn => btn.addEventListener('click', toggleDropdownBtn));
-btnDropdownsNav.forEach(btn => btn.addEventListener('keydown', toggleDropdownBtn));
+btnDropdownArrows.forEach(btn => btn.addEventListener('click', toggleDropdownBtn));
+btnDropdownArrows.forEach(btn => btn.addEventListener('keydown', toggleDropdownBtn));
 
-
+// ============= dropdown when hovered =================
 function hoverDropdownLink(e, state) {
     if (mobileScreen) return;
     e.stopPropagation();
-    toggleDropDownBar(e.target, state);
+    toggleDropDownBar(e.target.lastElementChild, state);
 }
+
 dropdownLinks.forEach(link => link.addEventListener('mouseenter',(e) => hoverDropdownLink(e,'false')));
 dropdownLinks.forEach(link => link.addEventListener('mouseleave',(e) => hoverDropdownLink(e,'true')));
 
-function focusDropdownLink(parent, state) {
-    if (mobileScreen) return;
-    if (parent.classList.contains('dropdown-link')) toggleDropDownBar(parent, state);
+// ============= dropdown when focused =================
+function focusDropdownLink(parentLi, state) {
+    if (mobileScreen) return;    
+    toggleDropDownBar(parentLi.lastElementChild, state);
 }
 
-navLinks.forEach(link => link.addEventListener('focus',(e) => focusDropdownLink(e.target.parentNode, 'false')));
+navLinks.forEach(link => link.addEventListener('focus', (e) => {
+    const parentLi = e.target.parentNode;
+    if (parentLi.classList.contains('dropdown-link')) {
+        focusDropdownLink(parentLi, 'false');
+    }
+}));
 
-//  close dropdown bar after the last focused element
+navLinks.forEach(link => link.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+
+        const parentLi = e.target.parentNode;
+        if (parentLi.classList.contains('dropdown-link')) {
+        focusDropdownLink(parentLi, 'true');
+        }
+    }
+}));
+
 lastDropDownLinks.forEach(link => link.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
-        const liParent = e.target.closest('.dropdown-link');
-        focusDropdownLink(liParent, 'true');
+        const parentLi = e.target.closest('.dropdown-link');
+        focusDropdownLink(parentLi, 'true');
     }
 }));
 
@@ -137,6 +155,10 @@ function toggleHeaderPosition() {
 window.addEventListener('scroll', toggleHeaderBackground);
 window.addEventListener('scroll', toggleHeaderPosition);
 
+// ==================================  ELEMENTS TRANSITIONS  ======================================
+const images = document.querySelectorAll('img');
+
+
 // ========================= INITIALIZE ================================
 (function init() {
     //  initially hides the tab order for the nav links if the screen is mobile.
@@ -145,6 +167,10 @@ window.addEventListener('scroll', toggleHeaderPosition);
         mobileScreen = true;
     } else {
         nav.setAttribute('data-display', 'true');
-        btnDropdownsNav.forEach(btn => btn.style.display = 'none');
+        btnDropdownArrows.forEach(btn => btn.style.display = 'none');
+        btnToggleNav.setAttribute('aria-label', 'close navigation links');
+        btnNavBars.forEach(bar => bar.setAttribute('data-bar-open', ''));
+
+        displayNav = true;
     }
 })();
