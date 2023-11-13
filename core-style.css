@@ -109,7 +109,7 @@ header[data-hide] {
   -webkit-tap-highlight-color: transparent;
 }
 
-#nav-main > ul > li > a {
+#nav-main > ul > li > a:not(a.link-secondary) {
   width: fit-content;
 }
   

@@ -1,3 +1,4 @@
+'use strict';
 const header = document.querySelector('header');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const btnNavBars = btnToggleNav.querySelectorAll('.bar');
@@ -155,13 +156,8 @@ function toggleHeaderPosition() {
 window.addEventListener('scroll', toggleHeaderBackground);
 window.addEventListener('scroll', toggleHeaderPosition);
 
-// ==================================  ELEMENTS TRANSITIONS  ======================================
-const images = document.querySelectorAll('img');
-
-
 // ========================= INITIALIZE ================================
 (function init() {
-    //  initially hides the tab order for the nav links if the screen is mobile.
     if (document.documentElement.clientWidth <= 900) {
         toggleNavFocus(false);
         mobileScreen = true;
