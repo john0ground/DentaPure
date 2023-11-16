@@ -1,0 +1,193 @@
+:root {
+    --primary-color: #1F2B1C;
+    --secondary-color: #B2CB9E;
+    --tertiary-color: #AAEADE;
+  }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+    color: #000000;
+}
+
+#logo {
+    font-size: 28px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#logo svg {
+    width: 37px;
+    height: 37px;
+}
+
+#logo #pure {
+    font-family: "Molle", sans-serif;
+    font-weight: 400;
+    margin-left: 3px;
+    transform: translateY(3px);
+}
+
+.bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    background-image: url('../webp/dew-bg-640.webp');
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(224, 255, 214, 0.65);
+}
+
+.banner {
+    width: 100vw;
+    height: 18rem;
+    position: relative;
+    margin-top: 3.5rem;
+    padding-top: 3rem;
+}
+
+.banner .background {
+    background-image: url('../webp/monitor-400.webp');
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    filter: brightness(0.5);
+    z-index: -1;
+}
+
+.banner h1 {
+    font-size: 37px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 1rem;
+}
+
+.quick-links {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4rem 1rem;
+    gap: 2rem;
+}
+
+.quick-links nav {
+    width: 240px;
+}
+
+.quick-links nav h3 {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.quick-links nav ul {
+    list-style-type: none;
+}
+
+.quick-links nav ul li {
+    margin-bottom: 1rem;
+}
+
+.quick-links nav ul li a {
+    color: #fff;
+    text-wrap: wrap;
+    transition: color 0.3s ease-in-out;
+}
+
+.quick-links nav ul li a:hover,
+.quick-links nav ul li a:focus {
+    color: var(--secondary-color);
+}
+
+.quick-links nav ul li a svg {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    bottom: 0;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.quick-links nav ul li a svg:hover {
+    bottom: 5px;
+}
+
+footer {
+    background: var(--primary-color);
+    padding: 1.5rem;
+    color: #ffffffd7;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #ffffffd7;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 640px) {
+    .bg {
+        background-image: url('../webp/dew-bg-3000.webp');
+    }
+
+    .banner .background {
+        background-image: url('../webp/monitor-600.webp');
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .banner {
+        height: 23rem;
+        margin-top: 5rem;
+    }
+
+    .banner .background {
+        background-image: url('../webp/monitor-1920.webp');
+        background-position: right;
+    }
+
+    .banner h1 {
+        font-size: 58px;
+        margin-left: 3rem;
+        max-width: 48rem;
+    }
+    
+    .banner .link-secondary {
+        margin-left: 3rem;
+    }
+}
+ 
+@media screen and (min-width: 1200px) {
+   
+}
+
+@media screen and (min-width: 1920px) {
+    
+}

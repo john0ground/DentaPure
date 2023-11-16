@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="core-style.css">
+    <link rel="stylesheet" href="appointment.css">
+    <!-- <script src="index.js" defer></script> -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => 
+        {
+            "use strict";const header=document.querySelector("header"),btnToggleNav=document.querySelector(".btn-toggle-nav"),btnNavBars=btnToggleNav.querySelectorAll(".bar"),nav=document.querySelector("#nav-main"),navLinks=document.querySelectorAll("#nav-main > ul > li > a"),dropdownLinks=document.querySelectorAll(".dropdown-link"),btnDropdownArrows=document.querySelectorAll(".btn-dropdown-arrow"),lastNavLink=document.querySelector("#nav-main .link-last"),lastDropDownLinks=document.querySelectorAll(".dropdown-last");let displayNav=!1,mobileScreen=!1;function toggleNavFocus(e){!0===e?(navLinks.forEach(e=>e.removeAttribute("tabindex")),btnDropdownArrows.forEach(e=>e.removeAttribute("tabindex"))):(navLinks.forEach(e=>e.setAttribute("tabindex","-1")),btnDropdownArrows.forEach(e=>e.setAttribute("tabindex","-1")))}function toggleNavBar(e){("click"===e.type||" "===e.key||"Enter"===e.key)&&(e.preventDefault(),(displayNav=!displayNav)?(btnToggleNav.setAttribute("aria-label","close navigation links"),btnNavBars.forEach(e=>e.setAttribute("data-bar-open",""))):(btnToggleNav.setAttribute("aria-label","open navigation links"),btnNavBars.forEach(e=>e.removeAttribute("data-bar-open"))),nav.setAttribute("data-display",displayNav.toString()),toggleNavFocus(displayNav))}function toggleDropDownBar(e,t){let o=e;!1===mobileScreen&&o.setAttribute("data-screen","desktop"),"true"===t?o.setAttribute("data-visible","false"):o.setAttribute("data-visible","true");let r=o.querySelectorAll("ul li a");"true"===t?r.forEach(e=>e.setAttribute("tabindex","-1")):r.forEach(e=>e.removeAttribute("tabindex"))}function toggleDropdownBtn(e){if("click"===e.type||" "===e.key||"Enter"===e.key){e.preventDefault(),e.stopPropagation();let t=e.target.dataset.extend;"true"===t?(e.target.setAttribute("data-extend","false"),e.target.setAttribute("aria-label","Extend Dropdown Links"),e.target.classList.remove("dropdown-extend")):(e.target.setAttribute("data-extend","true"),e.target.setAttribute("aria-label","Close Dropdown Links"),e.target.classList.add("dropdown-extend")),toggleDropDownBar(e.target.nextElementSibling,t)}}function hoverDropdownLink(e,t){mobileScreen||(e.stopPropagation(),toggleDropDownBar(e.target.lastElementChild,t))}function focusDropdownLink(e,t){mobileScreen||toggleDropDownBar(e.lastElementChild,t)}function toggleHeaderBackground(){0===window.scrollY?header.setAttribute("data-origin",""):header.removeAttribute("data-origin")}btnToggleNav.addEventListener("click",toggleNavBar),btnToggleNav.addEventListener("keydown",toggleNavBar),lastNavLink.addEventListener("keydown",e=>{"Tab"===e.key&&mobileScreen&&(e.preventDefault(),btnToggleNav.focus())}),btnDropdownArrows.forEach(e=>e.addEventListener("click",toggleDropdownBtn)),btnDropdownArrows.forEach(e=>e.addEventListener("keydown",toggleDropdownBtn)),dropdownLinks.forEach(e=>e.addEventListener("mouseenter",e=>hoverDropdownLink(e,"false"))),dropdownLinks.forEach(e=>e.addEventListener("mouseleave",e=>hoverDropdownLink(e,"true"))),navLinks.forEach(e=>e.addEventListener("focus",e=>{let t=e.target.parentNode;t.classList.contains("dropdown-link")&&focusDropdownLink(t,"false")})),navLinks.forEach(e=>e.addEventListener("keydown",e=>{if("Tab"===e.key&&e.shiftKey){let t=e.target.parentNode;t.classList.contains("dropdown-link")&&focusDropdownLink(t,"true")}})),lastDropDownLinks.forEach(e=>e.addEventListener("keydown",e=>{if("Tab"===e.key){let t=e.target.closest(".dropdown-link");focusDropdownLink(t,"true")}}));let lastScrollPos=0;function toggleHeaderPosition(){let e=window.scrollY;e>lastScrollPos?header.setAttribute("data-hide",""):header.removeAttribute("data-hide"),lastScrollPos=e}window.addEventListener("scroll",toggleHeaderBackground),window.addEventListener("scroll",toggleHeaderPosition),document.documentElement.clientWidth<=900?(toggleNavFocus(!1),mobileScreen=!0):(nav.setAttribute("data-display","true"),btnDropdownArrows.forEach(e=>e.style.display="none"),btnToggleNav.setAttribute("aria-label","close navigation links"),btnNavBars.forEach(e=>e.setAttribute("data-bar-open","")),displayNav=!0);
+        });
+    </script>
+</head>
+<body>
+    <header data-origin>
+        <a id="logo" href="index.html" aria-label="Go to DentaPure Homepage">
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" stroke="#000" viewBox="0 0 64 64">
+                <path d="M60.893 1.549a.997.997 0 0 0-.679-.525c-2.98-.652-6.97-.982-11.856-.982-4.922 0-10.564.353-15.481.967C17.641 2.912 7 13.601 7 27v18.678L3.103 60.225a3.004 3.004 0 0 0 2.122 3.674 3.005 3.005 0 0 0 3.673-2.121L11.25 53H31c14.337 0 26-11.663 26-26 0-6.663 0-15.788 3.914-24.594.122-.274.114-.59-.021-.857zM6.966 61.26a1.001 1.001 0 0 1-1.932-.518l2.552-9.686a3.993 3.993 0 0 0 1.712 1.55L6.966 61.26zM52.347 8.938c-.073.027-6.014 2.301-14.545 9.321 5.572-.588 10.233.712 10.473.779a1 1 0 0 1-.549 1.924c-.064-.019-6.464-1.784-12.916-.135a103.198 103.198 0 0 0-4.103 3.88 102.29 102.29 0 0 0-4.456 4.752c10.211-2.021 19.587.46 20.012.576a1 1 0 0 1-.526 1.93c-.107-.029-10.88-2.889-21.475 0-.051.014-.103.016-.154.021-2.702 3.302-4.692 6.203-6.108 8.52 10.2-2.115 18.897.418 19.287.536a1 1 0 0 1-.574 1.916c-.097-.028-9.653-2.805-20.092-.079-1.184 2.166-1.671 3.434-1.684 3.468a1 1 0 0 1-1.876-.692c.057-.152.627-1.652 2.01-4.141 1.837-9.547-.028-18.21-.048-18.297a1 1 0 0 1 .76-1.192.993.993 0 0 1 1.193.759c.069.312 1.422 6.557.713 14.457a82.88 82.88 0 0 1 5.464-7.261c1.693-10.294-.111-18.677-.13-18.763a1.001 1.001 0 0 1 1.953-.433c.073.33 1.569 7.275.571 16.458a106.968 106.968 0 0 1 3.745-3.948 106.117 106.117 0 0 1 3.744-3.557v-.008c1.873-6.556.052-11.312.033-11.359a1 1 0 0 1 1.859-.74c.075.188 1.599 4.106.657 9.863C44.85 9.642 51.328 7.182 51.654 7.062a1 1 0 0 1 .693 1.876z"/>
+            </svg>
+            <span>Denta</span><span id="pure">Pure</span>
+        </a>
+        <button class="btn-toggle-nav" aria-label="Open Navigation">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+        </button>
+        <nav data-display="false" aria-label="main navigation" id="nav-main">
+            <ul>
+                <li class="dropdown-link">
+                    <a id="services-nav" href="services.html">Services</a>
+                    <button aria-labelledby="services-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
+                            <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
+                        </svg>
+                    </button>
+                    <div class="dropdown-bar" data-visible="false">
+                        <ul>
+                            <li><a href="services.html">Check-ups and Cleanings</a></li>
+                            <li><a href="services.html">Teeth Whitening</a></li>
+                            <li><a href="services.html">Fillings and Restorations</a></li>
+                            <li><a href="services.html">Root Canals</a></li>
+                            <li><a href="services.html">Orthodontics</a></li>
+                            <li><a class="dropdown-last" href="services.html">TMJ Treatment</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown-link">
+                    <a id="about-nav" href="about.html">About Us</a>
+                    <button aria-labelledby="about-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
+                            <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
+                        </svg>
+                    </button>
+                    <div class="dropdown-bar" data-visible="false">
+                        <ul>
+                            <li><a href="about.html">Team</a></li>
+                            <li><a class="dropdown-last" href="reviews.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a class="link-secondary link-last" href="appointment.html">Book an Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bg"></div>
+
+    <main>
+        <!-- ========================================== BANNER ====================================================== -->
+
+        <section class="banner">
+            <div class="background"></div>
+            <h1>Your Dental Wellness Awaits</h1>
+        </section>
+
+        <!-- ========================================== FORM ====================================================== -->
+
+        <section class="schedule">
+            <h2>Ready to Schedule an Appointment?</h2>
+            <p>
+                "We look forward to serving you at our dental clinic. To schedule your next appointment, please complete the form. Let us know your preferred date and time, and kindly specify the dental service you require, whether it's a routine check-up, teeth cleaning, a specific treatment, or any other oral health concern.”
+            </p>
+            <img
+                decoding="async"
+                loading="lazy"
+                srcset="webp/patient-640.webp 640w, webp/patient-1024.webp 1024w, webp/patient-1920.webp 1920w"    
+                src="webp/patient-1024.webp"
+                alt="Dentist and patient looking at an x-ray screen"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 600px, 550px"
+            >
+            <form action=""></form>
+        </section>
+
+        <!-- ========================================== QUICK LINKS ====================================================== -->
+
+        <section class="quick-links">
+            <nav>
+                <h3>Social</h3>
+                <ul>
+                    <li>
+                        <a href="https://facebook.com">
+                            <svg aria-label="Go to DentaPure Facebook Page" xmlns="http://www.w3.org/2000/svg" viewBox="-5 0 20 20" fill="#EDDDC3" stroke="#EDDDC3">
+                                <path d="M6.821 20v-9h2.733L10 7H6.821V5.052C6.821 4.022 6.848 3 8.287 3h1.458V.14c0-.043-1.253-.14-2.52-.14C4.58 0 2.924 1.657 2.924 4.7V7H0v4h2.923v9h3.898Z" fill="#fff" stroke="none" fill-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com">
+                            <svg aria-label="Go to DentaPure Instagram Page" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff">
+                                <path d="M5.87.123C4.242.196 2.83.594 1.69 1.729.548 2.869.155 4.286.081 5.897.037 6.902-.231 14.498.545 16.49a5.04 5.04 0 0 0 2.91 2.903c.634.246 1.356.412 2.416.461 8.86.401 12.145.183 13.53-3.364.246-.631.415-1.353.462-2.41.405-8.883-.066-10.809-1.61-12.351C17.027.507 15.586-.325 5.87.123m.081 17.944c-.97-.043-1.496-.205-1.848-.341a3.255 3.255 0 0 1-1.888-1.883c-.591-1.514-.395-8.703-.342-9.866.051-1.14.282-2.18 1.086-2.985C3.954 2 5.24 1.513 13.993 1.908c1.142.052 2.186.282 2.992 1.084.995.993 1.489 2.288 1.087 11.008-.044.968-.206 1.493-.342 1.843-.901 2.308-2.973 2.628-11.779 2.224M14.09 4.69c0 .657.534 1.19 1.194 1.19.66 0 1.195-.533 1.195-1.19a1.194 1.194 0 0 0-2.39 0M4.864 9.988a5.103 5.103 0 0 0 5.11 5.097 5.103 5.103 0 0 0 5.109-5.097 5.102 5.102 0 0 0-5.11-5.096 5.102 5.102 0 0 0-5.11 5.096m1.794 0A3.313 3.313 0 0 1 9.972 6.68a3.313 3.313 0 0 1 3.317 3.308 3.313 3.313 0 0 1-3.317 3.31 3.313 3.313 0 0 1-3.316-3.31" fill="#fff" fill-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Team</a></li>
+                    <li><a href="about.html">Reviews</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                    <li><a href="#sec-contact">Visit Us</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">Check-ups and Cleanings</a></li>
+                    <li><a href="services.html">Teeth Whitening</a></li>
+                    <li><a href="services.html">Fillings and Restorations</a></li>
+                    <li><a href="services.html">Root Canals</a></li>
+                    <li><a href="services.html">Orthodontics</a></li>
+                    <li><a href="services.html">TMJ Treatment</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#sec-contact">Rosario Cres, Cagayan de Oro, 1800 Misamis Oriental </a></li>
+                    <li><a href="tel:09234567891">(63) 923 456 7891</a></li>
+                    <li><a href="mailto:john@example.com">dentapure@gmail.com</a></li>
+                </ul>
+            </nav>
+        </section>
+        
+        <!-- ========================================== FOOTER ====================================================== -->
+        
+        <footer>
+            © 2023 DentaPure. All Rights Reserved. Website by <a href="https://github.com/john0ground">JohnC</a>
+        </footer>
+    </main>
+</body>
+</html>
