@@ -71,6 +71,8 @@ body {
     border-radius: 10px;
     margin-top: 6rem;
     position: relative;
+    height: 345px;
+    width: 250px;
 }
 
 .hero-text {
@@ -519,6 +521,8 @@ footer a {
         top: 3.5rem;
         right: -25%;
         border-radius: 0;
+        height: 414px;
+        width: 300px;
     }
 
     .hero-text {
