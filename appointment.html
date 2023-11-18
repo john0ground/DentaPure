@@ -86,7 +86,26 @@
                 alt="Dentist and patient looking at an x-ray screen"
                 sizes="(max-width: 640px) 90vw, (max-width: 1024px) 600px, 550px"
             >
-            <form action=""></form>
+
+            <form action="" method="POST">
+                <div class="form-input">
+                    <label for="name">Name*</label>
+                    <input type="text" name="name" id="name" placeholder="Sarah Guzman" required>
+                </div>
+                <div class="form-input">
+                    <label for="phone">Phone*</label>
+                    <input type="tel" name="phone" id="phone" placeholder="(63) 923 456 7891" required>
+                </div>
+                <div class="form-input">
+                    <label for="email">Email (optional)</label>
+                    <input type="email" name="email" id="email" placeholder="name@site.com">
+                </div>
+                <div class="form-input">
+                    <label for="message">Message*</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit">Send</button>
+           </form>
         </section>
 
         <!-- ========================================== QUICK LINKS ====================================================== -->
