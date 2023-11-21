@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="core-style.css">
     <link rel="stylesheet" href="appointment.css">
     <script src="index.js" defer></script>
+    <script src="form.js" defer></script>
 </head>
 <body>
     <header data-origin>
@@ -81,30 +82,35 @@
             <img
                 decoding="async"
                 loading="lazy"
-                srcset="webp/patient-640.webp 640w, webp/patient-1024.webp 1024w, webp/patient-1920.webp 1920w"    
+                srcset="webp/form-clinic-640.webp 640w, webp/form-clinic-1024.webp 1024w, webp/form-clinic-1920.webp 1920w"    
                 src="webp/patient-1024.webp"
                 alt="Dentist and patient looking at an x-ray screen"
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 600px, 550px"
+                sizes="(max-width: 550px) 90vw, (max-width: 1024px) 500px, 550px"
             >
 
             <form action="" method="POST">
+                <h3>Send us a message.</h3>
                 <div class="form-input">
                     <label for="name">Name*</label>
                     <input type="text" name="name" id="name" placeholder="Sarah Guzman" required>
+                    <span>Invalid message</span>
                 </div>
                 <div class="form-input">
                     <label for="phone">Phone*</label>
                     <input type="tel" name="phone" id="phone" placeholder="(63) 923 456 7891" required>
+                    <span>Invalid message</span>
                 </div>
                 <div class="form-input">
                     <label for="email">Email (optional)</label>
                     <input type="email" name="email" id="email" placeholder="name@site.com">
+                    <span>Invalid message</span>
                 </div>
                 <div class="form-input">
                     <label for="message">Message*</label>
                     <textarea name="message" id="message" cols="30" rows="10" placeholder="How can we help you?" required></textarea>
+                    <span>Invalid message</span>
                 </div>
-                <button type="submit">Send</button>
+                <button class="link-primary" type="submit">Send</button>
            </form>
         </section>
 
