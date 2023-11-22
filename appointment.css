@@ -156,12 +156,12 @@ form .form-input {
     padding: 1rem;
 }
 
-.form-input input[data-valid="true"] {
+.form-input input[aria-invalid="false"] {
     background: rgb(208, 250, 208);
     border: 1px solid rgb(0, 150, 0);
 }
 
-.form-input input[data-valid="false"] {
+.form-input input[aria-invalid="true"] {
     background: rgb(255, 200, 200);
     border: 1px solid rgb(150 0 0);
 }
@@ -170,17 +170,16 @@ form .form-input {
     border: 2px solid #000;
 }
 
-.form-input span {
-    font-size: 1rem;
-    visibility: hidden;
+.form-input .error-message {
     color: red;
+    font-size: 1rem;
     font-size: 0.9rem;
     margin-top: 3px;
+    visibility: visible;
 }
 
-.form-input span[data-visible] {
-    color: red;
-    visibility: visible;
+.form-input .error-message[aria-hidden="true"] {
+    visibility: hidden;
 }
 
 form button {

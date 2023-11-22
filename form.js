@@ -42,25 +42,28 @@ function inputVerifier(id, content) {
 function validate(e) {
     const input = e.target;
     const content = input.value;
-    const errorInfoNode = input.parentNode.querySelector('span');
+    const spanError = input.parentNode.querySelector('.error-message');
 
-    const result = inputVerifier(input.id, content);
+    const { state, errorMessage } = inputVerifier(input.id, content);
 
-    switch (result.state) {
+    switch (state) {
         case true:
-            input.setAttribute('data-valid', 'true');
-            errorInfoNode.removeAttribute('data-visible');
+            input.setAttribute('aria-invalid', 'false');
+            input.removeAttribute('aria-errormessage');
+            spanError.setAttribute('aria-hidden', 'true');
             break;
         case false:
-            input.setAttribute('data-valid', 'false');
-            errorInfoNode.setAttribute('data-visible', '');
-            errorInfoNode.textContent = result.errorMessage;
+            input.setAttribute('aria-invalid', 'true');
+            spanError.removeAttribute('aria-hidden');
+            spanError.textContent = errorMessage;
+            input.setAttribute('aria-errormessage', spanError.id);
             break;
         case 'optional':
-            input.setAttribute('data-valid', 'optional');
-            errorInfoNode.removeAttribute('data-visible');
+            input.removeAttribute('aria-invalid');
+            input.removeAttribute('aria-errormessage');
+            spanError.setAttribute('aria-hidden', 'true');
             break;
     }
 }
 
-form.addEventListener('input', validate);
+form.addEventListener('focusout', validate);
