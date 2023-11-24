@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const phone = form.querySelector('#phone');
 const onlySpaces = /^ +$/;
 const onlyLetters = /^[A-Za-z\s]+$/;
 
@@ -24,11 +25,21 @@ function verifyName(content) {
 }
 
 function verifyEmail(content) {
-
+    
 }
 
 function verifyPhone(content) {
+    const result = new InputStateData(false, '');
+    
+    if (content.length < 6) {
+        result.errorMessage = 'Please add a phone number.'
+    } else if (content.length < 15) {
+        result.errorMessage = 'Please enter a 10 digit number after the area code (+63).'
+    } else {
+        result.state = true;
+    }
 
+    return result;
 }
 
 function inputVerifier(id, content) {
@@ -66,4 +77,21 @@ function validate(e) {
     }
 }
 
+function countryCodeAltered(content) {
+    return !content.startsWith('+63  ') || content === '+63   '? true: false; 
+}
+
+function notANumber(char) {
+    return !/\d/.test(char)? true: false;
+}
+
+function fixedPhoneHandler() {
+    let content = phone.value;
+
+    if (notANumber(content[content.length - 1])) content = content.slice(0, -1);
+    if (countryCodeAltered(content)) content = '+63  ';
+    phone.value = content;
+}
+
+phone.addEventListener('input', fixedPhoneHandler);
 form.addEventListener('focusout', validate);

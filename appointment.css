@@ -134,6 +134,11 @@ form .form-input {
     font-weight: 600;
 }
 
+.form-input label > span {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
 .form-input input {
     width: 100%;
     height: 2rem;
@@ -142,10 +147,6 @@ form .form-input {
     font-family: 'Montserrat', sans-serif;
     padding: 0 1rem;
     outline: none;
-}
-
-.form-input input::placeholder {
-    
 }
 
 .form-input textarea {
