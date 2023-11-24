@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const phone = form.querySelector('#phone');
+const submitBtn = form.querySelector('button');
 const onlySpaces = /^ +$/;
 const onlyLetters = /^[A-Za-z\s]+$/;
 
@@ -73,6 +74,8 @@ function inputVerifier(id, content) {
 }
 
 function validate(e) {
+    if (e.target.tagName === 'BUTTON') return;
+
     const input = e.target;
     const content = input.value;
     const spanError = input.parentNode.querySelector('.error-message');
@@ -99,6 +102,37 @@ function validate(e) {
     }
 }
 
+function validateAll() {
+    const inputs = form.querySelectorAll('input');
+    const textAreas = form.querySelectorAll('textarea');
+    
+    for (const input of inputs) {
+        input.focus();
+    }
+
+    for (const input of textAreas) {
+        input.focus();
+    }
+}
+
+function reviewErrors(e) {
+    const inputs = form.querySelectorAll('input');
+    const textAreas = form.querySelectorAll('textarea');
+
+    const fields = [...inputs, ...textAreas];
+
+    for (const field of fields) {
+        if (
+            field.hasAttribute('aria-invalid') && 
+            field.getAttribute('aria-invalid') === 'true'
+        ) {
+            field.focus();
+            e.preventDefault();
+            break;
+        }
+    }
+}
+
 function countryCodeAltered(content) {
     return !content.startsWith('+63  ') || content === '+63   '? true: false; 
 }
@@ -117,3 +151,7 @@ function fixedPhoneHandler() {
 
 phone.addEventListener('input', fixedPhoneHandler);
 form.addEventListener('focusout', validate);
+submitBtn.addEventListener('click', validateAll);  // update UI for errors. Html input errors prevents updating UI with the 'submit' event.
+form.addEventListener('submit', reviewErrors);  // prevent submission from invalid fields.
+
+//  netlify recaptcha
