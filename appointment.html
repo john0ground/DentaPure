@@ -96,7 +96,7 @@
                         type="text" 
                         name="name" 
                         id="name" 
-                        pattern="/^[A-Za-z\s]+$/"
+                        pattern="[A-Za-z ]+"
                         placeholder="Sarah Guzman" 
                         aria-required="true" 
                         required
@@ -116,7 +116,7 @@
                         name="phone" 
                         id="phone" 
                         value="+63  "
-                        pattern="\+63\s{2}\d{3}-\d{3}-\d{4}"
+                        pattern="(\+63\s{2}\d{10})"
                         maxlength="15"
                         aria-required="true" 
                         required
@@ -152,7 +152,7 @@
                         id="message" 
                         cols="30" 
                         rows="10" 
-                        placeholder="How can we help you?" 
+                        placeholder="Please share any specific concerns, questions, or additional details about your dental appointment."
                         aria-required="true" 
                         required></textarea>
                     <span 

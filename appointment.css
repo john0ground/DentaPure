@@ -157,12 +157,14 @@ form .form-input {
     padding: 1rem;
 }
 
-.form-input input[aria-invalid="false"] {
+.form-input input[aria-invalid="false"],
+.form-input textarea[aria-invalid="false"] {
     background: rgb(208, 250, 208);
     border: 1px solid rgb(0, 150, 0);
 }
 
-.form-input input[aria-invalid="true"] {
+.form-input input[aria-invalid="true"],
+.form-input textarea[aria-invalid="true"] {
     background: rgb(255, 200, 200);
     border: 1px solid rgb(150 0 0);
 }
@@ -186,6 +188,7 @@ form .form-input {
 form button {
     margin: 0 auto;
     border-radius: 0;
+    border: none;
 }
 
 .quick-links {

@@ -25,12 +25,33 @@ function verifyName(content) {
 }
 
 function verifyEmail(content) {
-    
+    const result = new InputStateData(false, '');
+    const format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (onlySpaces.test(content) || content.length === 0) {
+        result.state = 'optional'
+    } else if(format.test(content)) {
+        result.state = true;
+    } else {
+        result.errorMessage = 'Please enter a valid email.'
+    }
+
+    return result;
+}
+
+function verifyMessage(content) {
+    const result = new InputStateData(false, '');
+
+    (onlySpaces.test(content) || content.length === 0)?
+    result.errorMessage = 'Please enter a message.':
+    result.state = true;
+
+    return result;
 }
 
 function verifyPhone(content) {
     const result = new InputStateData(false, '');
-    
+
     if (content.length < 6) {
         result.errorMessage = 'Please add a phone number.'
     } else if (content.length < 15) {
@@ -47,6 +68,7 @@ function inputVerifier(id, content) {
         case 'name': return verifyName(content);
         case 'phone': return verifyPhone(content);
         case 'email': return verifyEmail(content);
+        case 'message': return verifyMessage(content);
     }
 }
 
