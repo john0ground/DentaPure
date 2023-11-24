@@ -242,14 +242,16 @@ h2 {
 }
 
 .card-bg {
-    background: #97B68C;
+    /* background: #97B68C; */
+    background: var(--primary-color);
     border-radius: 0 20px 0 20px;
     max-height: fit-content;
     max-width: fit-content;
 }
 
 .review-card {
-    background: var(--tertiary-color);
+    /* background: var(--tertiary-color); */
+    background: var(--secondary-color);
     border-radius: 0 20px 0 20px;
     padding: 2rem;
     max-width: 290px;
@@ -261,6 +263,7 @@ h2 {
 .review-card .stars svg {
     width: 24px;
     height: auto;
+    filter: brightness(1.2);
 }
 
 .review-card p {
