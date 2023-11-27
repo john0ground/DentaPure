@@ -89,7 +89,12 @@
                 sizes="(max-width: 550px) 90vw, (max-width: 1024px) 500px, 550px"
             >
 
-            <form name="contact" method="POST" data-netlify="true">
+            <form 
+                name="contact" 
+                method="POST" 
+                data-netlify-recaptcha="true"
+                data-netlify="true"
+            >
                 <h3>Send us a message.</h3>
                 <div class="form-input">
                     <label for="name">Name*</label>
@@ -164,6 +169,7 @@
                         Invalid message
                     </span>
                 </div>
+                <div data-netlify-recaptcha="true"></div>
                 <button class="link-primary" type="submit">Submit</button>
            </form>
         </section>
