@@ -151,7 +151,5 @@ function fixedPhoneHandler() {
 
 phone.addEventListener('input', fixedPhoneHandler);
 form.addEventListener('focusout', validate);
-submitBtn.addEventListener('click', validateAll);  // update UI for errors. Html input errors prevents updating UI with the 'submit' event.
+submitBtn.addEventListener('click', validateAll);  // update UI for all errors. Html input errors prevents updating UI with the 'submit' event.
 form.addEventListener('submit', reviewErrors);  // prevent submission from invalid fields.
-
-//  netlify recaptcha

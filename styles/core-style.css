@@ -134,7 +134,7 @@ header[data-hide] {
 
 #nav-main ul li {
   list-style-type: none;
-  padding: 10px 0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -224,7 +224,6 @@ a {
 }
 
 .dropdown-bar ul li {
-  padding: 10px 20px;
   border-radius: 10px;
 }
 

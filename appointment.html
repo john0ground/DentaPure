@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="To schedule your next appointment, please complete the form. Let us know your preferred date and time, and kindly specify the dental service you require, whether it's a routine check-up, teeth cleaning, a specific treatment, or any other oral health concern.”">
     <title>Appointment</title>
-    <link rel="stylesheet" href="core-style.css">
-    <link rel="stylesheet" href="appointment.css">
-    <script src="index.js" defer></script>
-    <script src="form.js" defer></script>
+    <link rel="stylesheet" href="styles/core-style.css">
+    <link rel="stylesheet" href="styles/appointment.css">
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/form.js" defer></script>
 </head>
 <body>
     <header data-origin>
@@ -25,8 +26,8 @@
         <nav data-display="false" aria-label="main navigation" id="nav-main">
             <ul>
                 <li class="dropdown-link">
-                    <a id="services-nav" href="services.html">Services</a>
-                    <button aria-labelledby="services-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                    <a href="services.html">Services</a>
+                    <button aria-label="Extend Services Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
                             <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
                         </svg>
@@ -43,8 +44,8 @@
                     </div>
                 </li>
                 <li class="dropdown-link">
-                    <a id="about-nav" href="about.html">About Us</a>
-                    <button aria-labelledby="about-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                    <a href="about.html">About Us</a>
+                    <button aria-label="Extend About Us Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
                             <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
                         </svg>
@@ -57,7 +58,7 @@
                     </div>
                 </li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a class="link-secondary link-last" href="appointment.html">Book an Appointment</a></li>
             </ul>
         </nav>
@@ -84,7 +85,7 @@
                 loading="lazy"
                 srcset="webp/form-clinic-640.webp 640w, webp/form-clinic-1024.webp 1024w, webp/form-clinic-1920.webp 1920w"    
                 src="webp/patient-1024.webp"
-                alt="Dentist and patient looking at an x-ray screen"
+                alt="dental office waiting room"
                 sizes="(max-width: 550px) 90vw, (max-width: 1024px) 500px, 550px"
             >
 
@@ -163,14 +164,14 @@
                         Invalid message
                     </span>
                 </div>
-                <button class="link-primary" type="submit">Send</button>
+                <button class="link-primary" type="submit">Submit</button>
            </form>
         </section>
 
         <!-- ========================================== QUICK LINKS ====================================================== -->
 
         <section class="quick-links">
-            <nav>
+            <nav aria-label="Social Links">
                 <h3>Social</h3>
                 <ul>
                     <li>
@@ -189,7 +190,7 @@
                     </li>
                 </ul>
             </nav>
-            <nav>
+            <nav aria-label="About Links">
                 <h3>About</h3>
                 <ul>
                     <li><a href="about.html">Team</a></li>
@@ -198,7 +199,7 @@
                     <li><a href="#sec-contact">Visit Us</a></li>
                 </ul>
             </nav>
-            <nav>
+            <nav aria-label="Services Links">
                 <h3>Services</h3>
                 <ul>
                     <li><a href="services.html">Check-ups and Cleanings</a></li>
@@ -209,7 +210,7 @@
                     <li><a href="services.html">TMJ Treatment</a></li>
                 </ul>
             </nav>
-            <nav>
+            <nav aria-label="Contact Information">
                 <h3>Contact</h3>
                 <ul>
                     <li><a href="#sec-contact">Rosario Cres, Cagayan de Oro, 1800 Misamis Oriental </a></li>

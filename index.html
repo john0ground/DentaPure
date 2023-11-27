@@ -7,9 +7,9 @@
         name="description"
         content="DentaPure Clinic; We are focused on providing you with the highest quality dental care. Our team of experienced professionals and welcoming atmosphere come together to ensure you feel comfortable and confident in your dental journey.">
     <title>DentaPure</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="core-style.css">
-    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/core-style.css">
+    <script src="scripts/index.js" defer></script>
 </head>
 <body>
     <header data-origin>
@@ -27,8 +27,8 @@
         <nav data-display="false" aria-label="main navigation" id="nav-main">
             <ul>
                 <li class="dropdown-link">
-                    <a id="services-nav" href="services.html">Services</a>
-                    <button aria-labelledby="services-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                    <a href="services.html">Services</a>
+                    <button aria-label="Extend Services Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
                             <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
                         </svg>
@@ -45,8 +45,8 @@
                     </div>
                 </li>
                 <li class="dropdown-link">
-                    <a id="about-nav" href="about.html">About Us</a>
-                    <button aria-labelledby="about-nav" aria-label="Extend Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
+                    <a href="about.html">About Us</a>
+                    <button aria-label="Extend About Us Dropdown Links" class="btn-dropdown-arrow" data-extend="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 1024 1024" class="icon">
                             <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
                         </svg>
@@ -59,7 +59,7 @@
                     </div>
                 </li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a class="link-secondary link-last" href="appointment.html">Book an Appointment</a></li>
             </ul>
         </nav>
@@ -70,7 +70,7 @@
         <!-- ========================================== HERO ====================================================== -->
 
         <section class="hero">
-            <aside>
+            <aside aria-labelledby="hero-header">
                 <img
                     alt="Smiling girl in gray knit cap"
                     src="webp/child-600.webp"
@@ -82,11 +82,11 @@
             </aside>
             <div class="hero-text">
                 <span>Cagayan De Oro City</span>
-                <h1>Your Smile, Our Priority</h1>
+                <h1 id="hero-header">Your Smile, Our Priority</h1>
                 <p>
                     We are focused on providing you with the highest quality dental care. Our team of experienced professionals and welcoming atmosphere come together to ensure you feel comfortable and confident in your dental journey.
                 </p>
-                <a href="apppointment.html" class="link-primary">Book an Appointment</a>
+                <a href="appointment.html" class="link-primary">Book an Appointment</a>
                 <a href="tel:09234567891" class="link-secondary">(63) 923 456 7891</a>
             </div>
         </section>
@@ -150,8 +150,8 @@
         <!-- ========================================== TEAM ====================================================== -->
 
         <section class="team">
-            <aside>
-                <h2>Specialized Team</h2>
+            <aside aria-labelledby="team-header">
+                <h2 id="team-header">Specialized Team</h2>
                 <div class="img-container">
                     <img
                         decoding="async" 
@@ -433,7 +433,7 @@
         <!-- ========================================== QUICK LINKS ====================================================== -->
 
         <section class="quick-links">
-            <nav>
+            <nav aria-label="Social Links">
                 <h3>Social</h3>
                 <ul>
                     <li>
@@ -452,7 +452,7 @@
                     </li>
                 </ul>
             </nav>
-            <nav>
+            <nav aria-label="About Links">
                 <h3>About</h3>
                 <ul>
                     <li><a href="about.html">Team</a></li>
@@ -462,7 +462,7 @@
                 </ul>
             </nav>
             <nav>
-                <h3>Services</h3>
+                <h3 aria-label="Services Links">Services</h3>
                 <ul>
                     <li><a href="services.html">Check-ups and Cleanings</a></li>
                     <li><a href="services.html">Teeth Whitening</a></li>
@@ -472,7 +472,7 @@
                     <li><a href="services.html">TMJ Treatment</a></li>
                 </ul>
             </nav>
-            <nav>
+            <nav aria-label="Contact Information">
                 <h3>Contact</h3>
                 <ul>
                     <li><a href="#sec-contact">Rosario Cres, Cagayan de Oro, 1800 Misamis Oriental </a></li>

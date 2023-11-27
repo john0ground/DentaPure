@@ -58,11 +58,20 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(224, 255, 214, 0.65);
+    background-color: rgba(224, 255, 214, 0.6);
 }
 
+main {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main.main-loaded {
+    opacity: 1;
+}   
+
 .banner {
-    width: 100vw;
+    max-width: 100vw;
     height: 18rem;
     position: relative;
     margin-top: 3.5rem;
@@ -93,7 +102,6 @@ body {
     margin: 4rem 0;
     row-gap: 2.5rem;
     justify-items: center;
-    border: 1px solid red;
 }
 
 .schedule h2 {
@@ -105,7 +113,7 @@ body {
 }
 
 .schedule img {
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -125,7 +133,7 @@ form h3 {
 }
 
 form .form-input {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1rem;
 }
 
 .form-input label {
@@ -187,7 +195,6 @@ form .form-input {
 
 form button {
     margin: 0 auto;
-    border-radius: 0;
     border: none;
 }
 
@@ -299,12 +306,43 @@ footer a {
     .banner .link-secondary {
         margin-left: 3rem;
     }
+
+    .schedule > p {
+        max-width: 50rem;
+    }
+
+    form button.link-primary {
+        border-radius: 0;
+    }
 }
  
 @media screen and (min-width: 1200px) {
-   
+    .bg::before {
+        background-color: rgba(224, 255, 214, 0.4);
+    }
+
+   .schedule {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0;
+        width: min-content;
+        margin: 6rem auto;
+        padding: 0;
+        column-gap: 5rem;
+   }
+
+   .schedule h2 {
+        align-self: center;
+   }
+
+   .schedule form {
+        grid-row: 1 / 4;
+        grid-column: 2 / 3;
+        min-width: 470px;
+   }
 }
 
 @media screen and (min-width: 1920px) {
-    
+    .schedule {
+        column-gap: 8rem;
+    }
 }

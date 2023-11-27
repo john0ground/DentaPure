@@ -77,14 +77,15 @@ function toggleDropdownBtn(e) {
         e.stopPropagation();
 
         const state = e.target.dataset.extend;
+        const navSibling = e.target.parentNode.querySelector('a');
         
         if (state === 'true') {
             e.target.setAttribute('data-extend', 'false');
-            e.target.setAttribute('aria-label', 'Extend Dropdown Links');
+            e.target.setAttribute('aria-label', `Extend ${navSibling.textContent} Dropdown Links`);
             e.target.classList.remove('dropdown-extend');
         } else {
             e.target.setAttribute('data-extend', 'true');
-            e.target.setAttribute('aria-label', 'Close Dropdown Links');
+            e.target.setAttribute('aria-label', `Close ${navSibling.textContent} Dropdown Links`);
             e.target.classList.add('dropdown-extend');
         }
 
@@ -170,3 +171,8 @@ window.addEventListener('scroll', toggleHeaderPosition);
         displayNav = true;
     }
 })();
+
+window.onload = () => {
+    const main = document.querySelector('main');
+    main.classList.add('main-loaded');
+}
